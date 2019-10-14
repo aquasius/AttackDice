@@ -27,21 +27,33 @@ function rollForPower(sides){
 console.log("Your power is set to",(tenSidedDice));
 
 let bossHealth = 100;
-console.log("Dice Game, the Doom-bringers' health is set to",(bossHealth));
+console.log("Dice Game, the Doom-Bringers' health is set to",(bossHealth));
 
 let bossPower = 10;
 console.log("Dice Game, the Doom-Bringers' power is set to",(bossPower));
 
 alert("Battle begins\nYou will now enter your attack phase!");
 
-let rollSixSidedDice = Math.floor(Math.random() * 6);
-let normalAttack = 
-function rollSixSidedDice(side){
-prompt("Choose attack type")
-    if("" )
-    if(!sides) side = 6
-with(Math) return 1 + floor(random() * sides);
+let rollSixSidedDice = Math.round(Math.random() * 6);
+let isValid = false;
+let userInputOne = "Normal Attack";
+let userInputTwo = "Heavy Attack";
 
-}
+while(!isValid){
+    userInput = prompt("Please enter Normal or Heavy attack")
+    if(userInput === userInputOne) userInput = rollSixSidedDice;
+    }
+    console.log(rollSixSidedDice);
+    
+//    if(userInput === userInputTwo){
 
-}
+//    }
+// //  let normalAttack = rollSixSidedDice + rollForPower
+//  function rollForNormalAttackDamage(side){
+//      if(!sides) sides = 6
+//     with(Math) return 1 + round(random() * sides);
+
+//  }
+
+//  }
+//   console.log(rollSixSidedDice);
