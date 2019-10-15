@@ -9,9 +9,9 @@ let chooseName = prompt("Please choose your character name","Name...");
 
     alert("The dice will now decide your character attributes");
 
-     let fiftySidedDice = rollDice(50);
+     let playerHealth = rollDice(50);
     
-     console.log("Your health is now",(fiftySidedDice));
+     console.log("Your health is now",(playerHealth));
     
     
 
@@ -30,46 +30,58 @@ console.log("Dice Game, the Doom-Bringers' power is set to",(bossPower));
 
 alert("Battle begins\nYou will now enter your attack phase!");
 
-
-
-
-
 function heavyAttack(){
     let heavyHitChance = rollDice(6);
     if(heavyHitChance>4){
         let heavyDamage = rollDice(6) + playerPower;
         bossHealth -= heavyDamage;
+        console.log(bossHealth);
     }
+    else if(heavyHitChance<4){
+        let 
+        
+        console.log("You swing a brutal attack, but Dice Game - The Doombringer evades!")
 }
+    
+}
+
+function bossSwing(){
+    if(heavyHitChance<4){
+    let bossAttack = rollDice(6);
+    if(bossAttack>5){
+        console.log("Dice Game hurls his axe and exerts an exhausting breath! You roll out of the way and escape damage!")
+
+    }
+    
+    let bossAttackDamage = bossPower -= playerHealth;
+}
+return; 
+}
+
+
 
 
 function normalAttack(){
     let normalHitChance = rollDice(6);
     if(normalHitChance<=4){
         let normalDamage = playerPower
-        bossHealth -= normalDamage;
+        
+    bossHealth -= normalDamage;
+    console.log(bossHealth);
+    return;
+    }
+    else if(normalHitChance>4){
+        console.log("Your attack missed!");
     }
 }
-// let rollSixSidedDice = Math.round(Math.random() * 6);
-// let isValid = false;
-// let userInputOne = "Normal Attack";
-// let userInputTwo = "Heavy Attack";
 
-// while(!isValid){
-//     userInput = prompt("Please enter Normal or Heavy attack")
-//     if(userInput === userInputOne) userInput = rollSixSidedDice;
-//     }
-//     console.log(rollSixSidedDice);
-    
-// //    if(userInput === userInputTwo){
+function printBossHealth(){
+    if(normalDamage){
+        let currentBossHealth = bossHealth -= normalDamage;
+    }
+    if(heavyDamage){
+        let currentBossHealth = bossHealth -= heavyDamage;
+        console.log(printBossHealth);
+    }
+}
 
-// //    }
-// // //  let normalAttack = rollSixSidedDice + rollForPower
-// //  function rollForNormalAttackDamage(side){
-// //      if(!sides) sides = 6
-// //     with(Math) return 1 + round(random() * sides);
-
-// //  }
-
-// //  }
-// //   console.log(rollSixSidedDice);
