@@ -4,7 +4,6 @@ function rollDice(sides){
    return Math.ceil(Math.random() * sides)
 }
 
-
 alert("Welcome to the arena peasant! Your objective is to defeat the great and powerful Dice Game, the Doom Bringer\nIf your attack misses it will initiate combat for the Boss. Be careful!")
 
 let chooseName = prompt("Please choose your character name","Name...");
@@ -38,14 +37,33 @@ alert("Battle begins\nYou will now enter your attack phase!");
 
 function normalAttack(){
     let normalHitChance = rollDice(6);
-    if(normalHitChance<=4){
+    if(normalHitChance===4){
         let normalDamage = playerPower
-        
-    bossHealth -= normalDamage;
-    console.log("Doom Bringers' health is now");
+        bossHealth -= normalDamage;
+    console.log("You choose to play it safe. You step in for a swift slash! Doom Bringer says Bring it peasant! His health is now");
     console.log(bossHealth);
-    return;
     }
+    if(normalHitChance===3){
+        let normalDamage = playerPower
+        bossHealth -= normalDamage;
+        console.log("You lunge for a quick chop! Doom Bringers' arm is badly cut! His health is now");
+        console.log(bossHealth);
+    }
+    
+    if(normalHitChance===2){
+        let normalDamage = playerPower
+        bossHealth -= normalDamage;
+        console.log("Ayyyyyyahhh! You perform a leaping slash attack that just graces Doom Bringers' chest! YOU FOOL yells Doom Bringer. His health is now");
+        console.log(bossHealth);
+    }
+
+    if(normalHitChance===1){
+        let normalDamage = playerPower
+        bossHealth -= normalDamage;
+        console.log("Shhhhckkk! You attempt a normal slash attack, but Doom Bringer brushes it off for minimal damage. His health is now");
+        console.log(bossHealth);
+    }
+
     else if(normalHitChance>4){
         console.log("Your attack missed! Watch out!");
         bossSwing();
@@ -54,10 +72,16 @@ function normalAttack(){
 
 function heavyAttack(){
     let heavyHitChance = rollDice(6);
-    if(heavyHitChance>4){
+    if(heavyHitChance===5){
         let heavyDamage = rollDice(6) + playerPower;
         bossHealth -= heavyDamage;
-        console.log("Doom Bringers' health is now");
+        console.log("With all your might you grasp your sword with two hands and execute a lacerating slash! Doom Bringers' health is now");
+        console.log(bossHealth);
+    }
+    if(heavyHitChance===6){
+        let heavyDamage = rollDice(6) + playerPower;
+        bossHealth -= heavyDamage;
+        console.log("You feint an attack! Doom Bringer falls for the feint and exposes an opening! You execute a perfectly placed blow! Doom Bringers' health is now");
         console.log(bossHealth);
     }
     else if(heavyHitChance<4){
@@ -75,11 +99,10 @@ function bossSwing(){
     if(bossAttack===6){
         console.log("Dice Game, the Doom Bringer unleashes a monstrous slash! You slide underneath the axe in perfect range to execute your next attack!");
     }
-        else if(bossAttack<=5){
+        else if(bossAttack<5){
         let bossAttackDamage = bossPower 
         playerHealth -= bossAttackDamage - armorScore;
-
-        console.log("Doom Bringer attacks and lands a crushing blow! Your health is now");
+            console.log("Doom Bringer attacks and lands a crushing blow! Your health is now");
         console.log(playerHealth);
         if(playerHealth<=0){
             console.log("Argggghhhh! Doom Bringer lands a devastating blow!")
@@ -107,10 +130,7 @@ function printBossHealth(){
 
 
 function playerDies(){
-    if(playerHealth<= 0);
-}
-
-
-function bossDies(){
-
-}
+    if(playerHealth<= 0){
+prompt("You fought an epic battle! Would you like to try again?")
+       }  
+    }
