@@ -6,6 +6,7 @@ let bossHealth;
 let bossPower;
 
 
+
 function runGame(){ 
      rollDice(); //changed
      setStartGameVariables(); //changed
@@ -151,6 +152,7 @@ function bossSwing(){
             loseCondition();
             
         }
+        document.getElementById("currentHealth").innerHTML = playerHealth;
     }
 }
 
