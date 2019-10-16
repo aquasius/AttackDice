@@ -1,37 +1,43 @@
-function runGame(){
-    rollDice();
-    setStartGameVariables();
+let playerHealth;
+let chooseName;
+let armorScore;
+let playerPower;
+let bossHealth;
+let bossPower;
+
+
+function runGame(){ 
+     rollDice(); //changed
+     setStartGameVariables(); //changed
 }
-
-
 function rollDice(sides){
    return Math.ceil(Math.random() * sides)
 }
 function setStartGameVariables(){
     alert("Welcome to the arena peasant! Your objective is to defeat the great and powerful Dice Game, the Doom Bringer\nIf your attack misses it will initiate combat for the Boss. Be careful!")
 
-    let chooseName = prompt("Please choose your character name","Name...");
+     chooseName = prompt("Please choose your character name","Name...");
     console.log(chooseName);
 
     alert("The dice will now decide your character attributes");
 
-     let playerHealth = rollDice(80);
+     playerHealth = rollDice(80);
     
      console.log("Your health is now",(playerHealth));
    
     // Generated stats for character
 
-    let armorScore = rollDice(4);
+     armorScore = rollDice(4);
 
     console.log("Your armor is set to",(armorScore));
 
-    let playerPower = rollDice(10);
+     playerPower = rollDice(10);
     console.log("Your power is set to",(playerPower));
 
-    let bossHealth = 100;
+     bossHealth = 100;
 console.log("Dice Game, the Doom-Bringers' health is set to",(bossHealth));
 
-let bossPower = 10;
+     bossPower = 10;
 console.log("Dice Game, the Doom-Bringers' power is set to",(bossPower));
 
 alert("Battle begins\nYou will now enter your attack phase!");
@@ -72,7 +78,7 @@ alert("Battle begins\nYou will now enter your attack phase!");
 function normalAttack(){
     let normalHitChance = rollDice(6);
     if(normalHitChance===4){
-        let normalDamage = playerPower
+        let normalDamage = playerPower;
         bossHealth -= normalDamage;
     console.log("You choose to play it safe. You step in for a swift slash! Doom Bringer says Bring it peasant! His health is now");
     console.log(bossHealth);
@@ -85,11 +91,12 @@ function normalAttack(){
     }
     
     else if(normalHitChance===2){
-        let normalDamage = playerPower
+        let normalDamage = playerPower; // changed
         bossHealth -= normalDamage;
         console.log("Ayyyyyyahhh! You perform a leaping slash attack that just graces Doom Bringers' chest! YOU FOOL yells Doom Bringer. His health is now");
         console.log(bossHealth);
     }
+
 
     else if(normalHitChance===1){
         let normalDamage = playerPower
@@ -97,6 +104,7 @@ function normalAttack(){
         console.log("Shhhhckkk! You attempt a normal slash attack, but Doom Bringer brushes it off for minimal damage. His health is now");
         console.log(bossHealth);
     }
+
 
     else if(normalHitChance>4){
         console.log("Your attack missed! Watch out!");
@@ -134,15 +142,14 @@ function bossSwing(){
         console.log("Dice Game, the Doom Bringer unleashes a monstrous slash! You slide underneath the axe in perfect range to execute your next attack!");
     }
         else if(bossAttack<5){
-        let bossAttackDamage = bossPower 
+        let bossAttackDamage = bossPower; //changed
         playerHealth -= bossAttackDamage - armorScore;
             console.log("Doom Bringer attacks and lands a crushing blow! Your health is now");
         console.log(playerHealth);
         if(playerHealth<=0){
             console.log("Argggghhhh! Doom Bringer lands a devastating blow!")
-        prompt("Muhahahha! Another mortal human added to my boneyard! Would you like to try again?");
+            loseCondition();
             
-        // alert("Muhahahha! Another mortal human added to my boneyard! Who will be added next to my bone collection!?")
         }
     }
 }
@@ -164,8 +171,29 @@ function printBossHealth(){
 }
 
 
-// function playerDies(){
-//     if(playerHealth<= 0){
-// alert("You fought an epic battle! Would you like to try again?");
-//
 
+function loseCondition(){
+    let endPrompt;
+    if(playerHealth<=0){
+        endPrompt = prompt("You have failed to defeat the powerful Doom Bringer. Would you like to try again?");
+    }
+    if(endPrompt == "yes"){
+      return runGame();
+    }
+}
+
+//     if(endPrompt = yes){
+//     runGame();
+// }
+function winCondition(){
+    let endPrompt;
+ if(bossHealth<=0){
+    endPrompt = prompt("You defeated the almighty Doom Bringer! You are now the Champion! Would you like to play again?");
+ } 
+   if(endPrompt == "yes"){
+    runGame();
+   }
+}
+
+
+runGame();
