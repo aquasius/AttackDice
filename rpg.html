@@ -9,7 +9,9 @@
         <script src = "rpg.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-        
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       
 <title></title> 
 <script></script>   
 <style></style>
@@ -25,7 +27,7 @@
         <i><h1><strong>VS</strong></h1></i>
         <img src="humanpeasant.png" class="w3-round-large" style="margin-right:10px;float:right;">
         <span class="popup" onclick="myFunction()">
-                        <span class="popuptext" id="myPopup">A Simple Popup!</span>
+                <span class="popuptext" id="myPopup">A Simple Popup!</span>
 </div>
        <div class="w3-container">
         <p id="health"></p>
@@ -34,18 +36,30 @@
         </div>
         
         <div class="flex-container">
-                <div style ="background-color: black;" class = "bg-3 text-left">
-                <h2  style="color: red;"><strong></style>Current Boss Health</strong></h2>
-                <p style="color:red;" id = "currentBoss">Doom Bringers' Health is</p>
-                </div>
-
-                <div style ="background-color:black" class="bg-3 text-right">
-                <h2 style="color:whitesmoke;"><strong></style>Your Current Health</strong></h2>
-                <p style="color:whitesmoke;" id = "currentHealth"><strong>Your current health is</strong></p>      
-                </div>
+                <div class = "bg-3 text-left">
+                <h2  style="color: red;"><strong></style>Doom Bringers' Health</strong></h2>
+                <h3 style="color:red;" id = "currentBoss"><strong></strong></h3>
         </div>
 
+                <div class="bg-3 text-right">
+                <h2 style="color:whitesmoke;"><strong></style>Your Current Health</strong></h2>
+                <h3 style="color:whitesmoke;" id = "currentHealth"><strong></strong></h3>      
+                <!-- <h3 style="color:gray;" id = "currentArmor"><strong></strong></h3> -->
+        </div>
+        </div>
 
+        <!-- Left-aligned media object -->
+  <div class="media">
+                <div class="media-left">
+                  <img src="" class="media-object" style="width:60px">
+                </div>
+                <div class="media-body">
+                <h1 style="color: black" class ="media-heading"><strong>Battle Text</strong></h1>
+                  
+                  <h3 style="color:white" id = "battleText" class ="media-heading"><strong></strong></h3>
+                </div>
+              </div>
+              <hr>
 <!-- <div class="popup" onclick="normalAttack()">Click me to toggle the popup!
                 <span class="popuptext" id="myPopup"></span>
               </div> -->
