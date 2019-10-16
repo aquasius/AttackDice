@@ -9,29 +9,45 @@
         <script src = "rpg.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        
 <title></title> 
 <script></script>   
 <style></style>
 </head>
 <body>
         
+<div class="flex-container">       
+        <img src="ogre.png" class="w3-round-large" style="padding-left:10px;float:left;">
         
-<img src="ogre.png" class="w3-round-large" style="padding-left:10px;float:left;"> 
-<i style="float:left; padding-left:10px;"><h1><strong>VS</strong></h1></i>
-<img src="humanpeasant.png" class="w3-round-large" style="margin-left:10px;float:left;">
-
+        <span class="popup" onclick="myFunction()">
+                <span class="popuptext" id="myPopup">A Simple Popup!</span>
+        </span>
+        <i><h1><strong>VS</strong></h1></i>
+        <img src="humanpeasant.png" class="w3-round-large" style="margin-right:10px;float:right;">
+        <span class="popup" onclick="myFunction()">
+                        <span class="popuptext" id="myPopup">A Simple Popup!</span>
+</div>
        <div class="w3-container">
         <p id="health"></p>
         <button onclick="normalAttack()">Normal Attack</button>
         <button onclick="heavyAttack()">Heavy Attack</button>
         </div>
-<div style ="background-color:rgb(11, 18, 24)" class = "w2-container"> 
-<h2 style="color:whitesmoke;"><strong></style>Your Current Health</strong></h2> 
-<p style="color:whitesmoke;" id = "currentHealth">Your current health is</p>
-</div>
+        
+        <div class="flex-container">
+                <div style ="background-color: black;" class = "bg-3 text-left">
+                <h2  style="color: red;"><strong></style>Current Boss Health</strong></h2>
+                <p style="color:red;" id = "currentBoss">Doom Bringers' Health is</p>
+                </div>
 
-<div style ="background-color: black;" class = "w2-container">
-<h2  style="color: red">Current Boss Health</h2>
+                <div style ="background-color:black" class="bg-3 text-right">
+                <h2 style="color:whitesmoke;"><strong></style>Your Current Health</strong></h2>
+                <p style="color:whitesmoke;" id = "currentHealth"><strong>Your current health is</strong></p>      
+                </div>
+        </div>
 
-</div>
+
+<!-- <div class="popup" onclick="normalAttack()">Click me to toggle the popup!
+                <span class="popuptext" id="myPopup"></span>
+              </div> -->
+</body>
 </html>

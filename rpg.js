@@ -10,7 +10,8 @@ let bossPower;
 function runGame(){ 
      rollDice(); //changed
      setStartGameVariables(); //changed
-}
+     
+    }
 function rollDice(sides){
    return Math.ceil(Math.random() * sides)
 }
@@ -23,6 +24,7 @@ function setStartGameVariables(){
     alert("The dice will now decide your character attributes");
 
      playerHealth = rollDice(80);
+     
     
      console.log("Your health is now",(playerHealth));
    
@@ -42,41 +44,15 @@ console.log("Dice Game, the Doom-Bringers' health is set to",(bossHealth));
 console.log("Dice Game, the Doom-Bringers' power is set to",(bossPower));
 
 alert("Battle begins\nYou will now enter your attack phase!");
-
 }
-
-// alert("Welcome to the arena peasant! Your objective is to defeat the great and powerful Dice Game, the Doom Bringer\nIf your attack misses it will initiate combat for the Boss. Be careful!")
-
-// let chooseName = prompt("Please choose your character name","Name...");
-//     console.log(chooseName);
-
-//     alert("The dice will now decide your character attributes");
-
-//      let playerHealth = rollDice(80);
-    
-//      console.log("Your health is now",(playerHealth));
-   
-//     // Generated stats for character
-
-// let armorScore = rollDice(4);
-
-// console.log("Your armor is set to",(armorScore));
-
-// let playerPower = rollDice(10);
-// console.log("Your power is set to",(playerPower));
-
-// let bossHealth = 100;
-// console.log("Dice Game, the Doom-Bringers' health is set to",(bossHealth));
-
-// let bossPower = 10;
-// console.log("Dice Game, the Doom-Bringers' power is set to",(bossPower));
-
-// alert("Battle begins\nYou will now enter your attack phase!");
 
 
 // attack functions 
 
 function normalAttack(){
+    var popup = document.getElementById("myPopup");
+    popup.innerHTML = "Take that you beast!";
+    popup.classList.toggle("show");
     let normalHitChance = rollDice(6);
     if(normalHitChance===4){
         let normalDamage = playerPower;
@@ -85,13 +61,19 @@ function normalAttack(){
     console.log(bossHealth);
     }
    else if(normalHitChance===3){
-        let normalDamage = playerPower
+    var popup = document.getElementById("myPopup");
+    popup.innerHTML = "Taste your own blood, bastard!";
+    popup.classList.toggle("show");    
+    let normalDamage = playerPower
         bossHealth -= normalDamage;
         console.log("You lunge for a quick chop! Doom Bringers' arm is badly cut! His health is now");
         console.log(bossHealth);
     }
     
     else if(normalHitChance===2){
+        var popup = document.getElementById("myPopup");
+        popup.innerHTML = "UGHH! You're lucky that wasn't fatal!";
+        popup.classList.toggle("show"); 
         let normalDamage = playerPower; // changed
         bossHealth -= normalDamage;
         console.log("Ayyyyyyahhh! You perform a leaping slash attack that just graces Doom Bringers' chest! YOU FOOL yells Doom Bringer. His health is now");
@@ -106,11 +88,15 @@ function normalAttack(){
         console.log(bossHealth);
     }
 
+    if(bossHealth<=0){
+        winCondition();
+    }
 
     else if(normalHitChance>4){
         console.log("Your attack missed! Watch out!");
         bossSwing();
         }
+    document.getElementById("currentBoss").innerHTML = bossHealth;
     }
 //  created scenarios for each instance of possible dice that could be rolled and assign different dialogue for them
 function heavyAttack(){
@@ -126,20 +112,32 @@ function heavyAttack(){
         bossHealth -= heavyDamage;
         console.log("You feint an attack! Doom Bringer falls for the feint and exposes an opening! You execute a perfectly placed blow! Doom Bringers' health is now");
         console.log(bossHealth);
-    }
+    }  
+    
+    if(bossHealth<=0){
+        winCondition();
+}
+
     else if(heavyHitChance<4){
         console.log("You swing a brutal attack, but Dice Game - The Doombringer evades and gets a chance to attack!")
      bossSwing();   
     }
+    document.getElementById("currentBoss").innerHTML = bossHealth;
 }
 
 // boss attack stipulations 
 function bossSwing(){
+    var popup = document.getElementById("myPopup");
+    popup.innerHTML = "YOU FOOL!";
+    popup.classList.toggle("show");
     let bossAttack = rollDice(6);
     if(bossAttack===5){
         console.log("Dice Game hurls his axe and exerts an exhausting breath! You roll out of the way and escape damage!")
     }
     if(bossAttack===6){
+        var popup = document.getElementById("myPopup");
+    popup.innerHTML = "WHAT?! HOW?!";
+    popup.classList.toggle("show");
         console.log("Dice Game, the Doom Bringer unleashes a monstrous slash! You slide underneath the axe in perfect range to execute your next attack!");
     }
         else if(bossAttack<5){
