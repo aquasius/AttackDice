@@ -1,12 +1,16 @@
+function runGame(){
+    rollDice();
+    setStartGameVariables();
+}
 
 
 function rollDice(sides){
    return Math.ceil(Math.random() * sides)
 }
+function setStartGameVariables(){
+    alert("Welcome to the arena peasant! Your objective is to defeat the great and powerful Dice Game, the Doom Bringer\nIf your attack misses it will initiate combat for the Boss. Be careful!")
 
-alert("Welcome to the arena peasant! Your objective is to defeat the great and powerful Dice Game, the Doom Bringer\nIf your attack misses it will initiate combat for the Boss. Be careful!")
-
-let chooseName = prompt("Please choose your character name","Name...");
+    let chooseName = prompt("Please choose your character name","Name...");
     console.log(chooseName);
 
     alert("The dice will now decide your character attributes");
@@ -14,23 +18,53 @@ let chooseName = prompt("Please choose your character name","Name...");
      let playerHealth = rollDice(80);
     
      console.log("Your health is now",(playerHealth));
-    
-    
+   
+    // Generated stats for character
 
-let armorScore = rollDice(4);
+    let armorScore = rollDice(4);
 
-console.log("Your armor is set to",(armorScore));
+    console.log("Your armor is set to",(armorScore));
 
-let playerPower = rollDice(10);
-console.log("Your power is set to",(playerPower));
+    let playerPower = rollDice(10);
+    console.log("Your power is set to",(playerPower));
 
-let bossHealth = 100;
+    let bossHealth = 100;
 console.log("Dice Game, the Doom-Bringers' health is set to",(bossHealth));
 
 let bossPower = 10;
 console.log("Dice Game, the Doom-Bringers' power is set to",(bossPower));
 
 alert("Battle begins\nYou will now enter your attack phase!");
+
+}
+
+// alert("Welcome to the arena peasant! Your objective is to defeat the great and powerful Dice Game, the Doom Bringer\nIf your attack misses it will initiate combat for the Boss. Be careful!")
+
+// let chooseName = prompt("Please choose your character name","Name...");
+//     console.log(chooseName);
+
+//     alert("The dice will now decide your character attributes");
+
+//      let playerHealth = rollDice(80);
+    
+//      console.log("Your health is now",(playerHealth));
+   
+//     // Generated stats for character
+
+// let armorScore = rollDice(4);
+
+// console.log("Your armor is set to",(armorScore));
+
+// let playerPower = rollDice(10);
+// console.log("Your power is set to",(playerPower));
+
+// let bossHealth = 100;
+// console.log("Dice Game, the Doom-Bringers' health is set to",(bossHealth));
+
+// let bossPower = 10;
+// console.log("Dice Game, the Doom-Bringers' power is set to",(bossPower));
+
+// alert("Battle begins\nYou will now enter your attack phase!");
 
 
 // attack functions 
@@ -43,21 +77,21 @@ function normalAttack(){
     console.log("You choose to play it safe. You step in for a swift slash! Doom Bringer says Bring it peasant! His health is now");
     console.log(bossHealth);
     }
-    if(normalHitChance===3){
+   else if(normalHitChance===3){
         let normalDamage = playerPower
         bossHealth -= normalDamage;
         console.log("You lunge for a quick chop! Doom Bringers' arm is badly cut! His health is now");
         console.log(bossHealth);
     }
     
-    if(normalHitChance===2){
+    else if(normalHitChance===2){
         let normalDamage = playerPower
         bossHealth -= normalDamage;
         console.log("Ayyyyyyahhh! You perform a leaping slash attack that just graces Doom Bringers' chest! YOU FOOL yells Doom Bringer. His health is now");
         console.log(bossHealth);
     }
 
-    if(normalHitChance===1){
+    else if(normalHitChance===1){
         let normalDamage = playerPower
         bossHealth -= normalDamage;
         console.log("Shhhhckkk! You attempt a normal slash attack, but Doom Bringer brushes it off for minimal damage. His health is now");
@@ -69,11 +103,11 @@ function normalAttack(){
         bossSwing();
         }
     }
-
+//  created scenarios for each instance of possible dice that could be rolled and assign different dialogue for them
 function heavyAttack(){
-    let heavyHitChance = rollDice(6);
+    let heavyHitChance = rollDice(7);
     if(heavyHitChance===5){
-        let heavyDamage = rollDice(6) + playerPower;
+        let heavyDamage = rollDice(7) + playerPower;
         bossHealth -= heavyDamage;
         console.log("With all your might you grasp your sword with two hands and execute a lacerating slash! Doom Bringers' health is now");
         console.log(bossHealth);
@@ -106,9 +140,10 @@ function bossSwing(){
         console.log(playerHealth);
         if(playerHealth<=0){
             console.log("Argggghhhh! Doom Bringer lands a devastating blow!")
-        alert("Muhahahha! Another mortal human added to my boneyard! Who will be added next to my bone collection!?")
+        prompt("Muhahahha! Another mortal human added to my boneyard! Would you like to try again?");
+            
+        // alert("Muhahahha! Another mortal human added to my boneyard! Who will be added next to my bone collection!?")
         }
-
     }
 }
 
@@ -129,8 +164,8 @@ function printBossHealth(){
 }
 
 
-function playerDies(){
-    if(playerHealth<= 0){
-prompt("You fought an epic battle! Would you like to try again?")
-       }  
-    }
+// function playerDies(){
+//     if(playerHealth<= 0){
+// alert("You fought an epic battle! Would you like to try again?");
+//
+
