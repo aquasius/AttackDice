@@ -130,7 +130,7 @@ function heavyAttack(){
         var popup = document.getElementById("myPopup");
         popup.innerHTML = "Knowledge ALWAYS outweighs physicality. AHHHH!";
         popup.classList.toggle("show"); 
-        winCondition();
+        
 }
 
     else if(heavyHitChance<4){
